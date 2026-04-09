@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-inter: 'Inter', sans-serif;
+  --color-brand: #2563eb;
+  --color-brand-hover: #1d4ed8;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  font-family: var(--font-inter);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 3px; }
+
+/* animations */
+@keyframes fadeIn   { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes scaleIn  { from { opacity: 0; transform: scale(0.96); }     to { opacity: 1; transform: scale(1); }     }
+@keyframes spin     { to { transform: rotate(360deg); } }
+
+.animate-fade-in  { animation: fadeIn  0.2s ease forwards; }
+.animate-scale-in { animation: scaleIn 0.18s ease forwards; }
+
+/* spinner */
+.spinner {
+  display: inline-block;
+  width: 16px; height: 16px;
+  border: 2px solid rgba(255,255,255,0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.65s linear infinite;
+}
+
+/* status badges */
+.badge-completed  { @apply inline-flex items-center px-2.5 py-0.5 rounded text-xs font-semibold tracking-wide bg-emerald-100 text-emerald-800; }
+.badge-incomplete { @apply inline-flex items-center px-2.5 py-0.5 rounded text-xs font-semibold tracking-wide bg-yellow-100 text-yellow-800; }
+.badge-missing    { @apply inline-flex items-center px-2.5 py-0.5 rounded text-xs font-semibold tracking-wide bg-pink-100 text-pink-800; }
+
+/* input */
+.input-base {
+  @apply w-full px-3 py-2 text-sm border border-gray-300 rounded-lg bg-white text-gray-900
+         placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
+         transition-all duration-150;
+}
+.input-error { @apply border-red-400 focus:ring-red-400; }
+
+/* progress bar */
+.progress-track { @apply h-1.5 bg-gray-200 rounded-full overflow-hidden; }
+.progress-fill  { @apply h-full bg-blue-600 rounded-full transition-all duration-500; }
+
+/* dashed modal border */
+.modal-dashed { border: 1.5px dashed #93c5fd; }
