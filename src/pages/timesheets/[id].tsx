@@ -156,7 +156,7 @@ export default function TimesheetDetailPage() {
   if (timesheet) {
     weekDays.forEach((day) => {
       entriesByDay[day] = timesheet.entries.filter(
-        (e) => e.date.split("T")[0] === day
+        (e:any) => e.date.split("T")[0] === day
       );
     });
   }

@@ -173,6 +173,7 @@ const TimesheetDetailModal: React.FC<Props> = ({
         onClose={() => setShowAdd(false)}
         onSubmit={handleAdd}
         mode="add"
+        />
 
       <EntryFormModal
         isOpen={!!editingEntry}
@@ -190,6 +191,7 @@ const TimesheetDetailModal: React.FC<Props> = ({
             : undefined
         }
         mode="edit"
+        />
     </>
   );
 };

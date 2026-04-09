@@ -50,8 +50,8 @@ const TimesheetFilters: React.FC<Props> = ({ filters, onApply }) => {
   const [local, setLocal] = useState(filters);
   const [datePreset, setDatePreset] = useState("");
 
-  const handleStatus = (value: string) => {
-    const updated = { ...local, status: value };
+  const handleStatus = (value: Filters["status"]) => {
+    const updated: Filters = { ...local, status: value };
     setLocal(updated);
     onApply(updated);
   };
@@ -72,7 +72,7 @@ const TimesheetFilters: React.FC<Props> = ({ filters, onApply }) => {
       <div className="relative">
         <select
           value={local.status}
-          onChange={(e) => handleStatus(e.target.value)}
+          onChange={(e) => handleStatus(e.target.value as Filters["status"])}
           className={selectClass}
         >
           {STATUS_OPTS.map((o) => (

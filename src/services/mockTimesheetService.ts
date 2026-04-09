@@ -123,7 +123,7 @@ export const mockUpdateEntry = async (
   const ts = store.find((t) => t._id === timesheetId);
   if (!ts) throw new Error("Timesheet not found.");
 
-  const updatedEntries = ts.entries.map((e) =>
+  const updatedEntries = ts.entries.map((e:any) =>
     e._id === entryId ? { ...e, ...values } : e
   );
   const updated: Timesheet = {
@@ -142,7 +142,7 @@ export const mockDeleteEntry = async (timesheetId: string, entryId: string) => {
   const ts = store.find((t) => t._id === timesheetId);
   if (!ts) throw new Error("Timesheet not found.");
 
-  const updatedEntries = ts.entries.filter((e) => e._id !== entryId);
+  const updatedEntries = ts.entries.filter((e:any) => e._id !== entryId);
   const updated: Timesheet = {
     ...ts,
     entries: updatedEntries,

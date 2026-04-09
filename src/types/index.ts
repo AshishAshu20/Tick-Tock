@@ -25,10 +25,11 @@ export interface Timesheet {
   year: number;
   startDate: string;
   endDate: string;
-  entries: TimesheetEntry[];
+  entries: any;
   status: TimesheetStatus;
   createdAt: string;
   updatedAt: string;
+  
 }
 
 export interface MockUser {
@@ -51,3 +52,4 @@ export interface TimesheetFilters {
   startDate: string;
   endDate: string;
 }
+
